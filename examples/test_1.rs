@@ -40,7 +40,7 @@ async fn main() -> anyhow::Result<()> {
     let mut resolver_core: Resolver<CoreDocument> = Resolver::new();
 
     let did_1: CoreDID = CoreDID::parse("did:foo:1234").unwrap();
-    let did_2: CoreDID = CoreDID::parse("did:bar:1234").unwrap();
+    let did_2: CoreDID = CoreDID::parse("did:foo:bar:1234").unwrap();
     resolver_core.attach_handler(did_1.method().to_owned(), foo_handler);
     resolver_core.attach_handler(did_2.method().to_owned(), bar_handler);
 

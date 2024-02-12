@@ -6,9 +6,18 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-identity_iota = { default-features = false, features = ["resolver"] }
+identity_iota = {  features = ["memstore", "domain-linkage", "revocation-bitmap"] }
 tokio = { version = "1.29",  features = ["rt-multi-thread", "macros"] }
 anyhow = "1.0.62"
+iota-sdk = { version = "1.0", default-features = false, features = ["tls", "client", "stronghold"] }
+identity_stronghold = { default-features = false }
+rand = "0.8.5"
+serde_json = { version = "1.0", default-features = false }
+iota_stronghold = { version = "2.0", default-features = false }
 
 [examples]
 test_1 = "examples/test_1.rs"
+stronghold_pub_key = "examples/stronghold_pub_key.rs"
+
+[lib]
+path = "examples/utils.rs"
